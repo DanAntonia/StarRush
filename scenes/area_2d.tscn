@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://boeu0dcxg0dl5"]
+
+[ext_resource type="Script" uid="uid://kb1ewdfjph15" path="res://scenes/area_2d.gd" id="1_nhxoo"]
+[ext_resource type="Texture2D" uid="uid://brjkvndod5aop" path="res://assets/Tiles/Icon3_1_2.png" id="1_svk5y"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wt6go"]
+atlas = ExtResource("1_svk5y")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q2a2c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wt6go")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q2a2c"]
+radius = 14.86607
+
+[node name="Area2D" type="Area2D" unique_id=513888290]
+position = Vector2(27, 44)
+script = ExtResource("1_nhxoo")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1466925805]
+texture_filter = 1
+position = Vector2(2, 2)
+scale = Vector2(2.875, 2.8124998)
+sprite_frames = SubResource("SpriteFrames_q2a2c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=58198601]
+position = Vector2(-1, 2)
+scale = Vector2(1.5333333, 1.6071424)
+shape = SubResource("CircleShape2D_q2a2c")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

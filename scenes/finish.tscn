@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://boh3fncc02u1o"]
+
+[ext_resource type="Texture2D" uid="uid://eqvfajwt28qk" path="res://assets/Tiles/pattern_16.png" id="1_5nbog"]
+[ext_resource type="Script" uid="uid://c545ydfqbopi7" path="res://scenes/finish.gd" id="1_07gpw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tjwb1"]
+size = Vector2(78, 361.5)
+
+[node name="finish" type="Area2D" unique_id=328086079]
+position = Vector2(-226, 68)
+script = ExtResource("1_07gpw")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1102053031]
+position = Vector2(1310, 373)
+scale = Vector2(0.13916017, 0.7167969)
+texture = ExtResource("1_5nbog")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1798210472]
+position = Vector2(1308, 367)
+shape = SubResource("RectangleShape2D_tjwb1")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
